@@ -129,7 +129,8 @@ def index(path=""):
 
     # if not a directory and not a file then 404
     if not os.path.isfile(filepath):
-        abort(404)
+        fh.make_file(path, filepath)
+        #abort(404)
 
     # edit
     if "edit" in request.args:
@@ -145,5 +146,5 @@ def page_not_found(error):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
+    app.run(host= '0.0.0.0')
+    #app.run(debug=True)
