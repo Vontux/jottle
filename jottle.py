@@ -125,13 +125,16 @@ def index(path=""):
 
     # if directory then browse
     if os.path.isdir(filepath):
+        print("trying to browse")
         return browse(path)
 
-    # if not a directory and not a file then 404
+    # if not a directory and not a file then check if directory path exisits if not create directories in url path then create the file
     if not os.path.isfile(filepath):
+        print("path: " + path +" filepath: "+ filepath)
+        if not os.path.exists(os.path.dirname(filepath)):
+           os.makedirs(os.path.dirname(filepath))
         fh.make_file(path, filepath)
         #abort(404)
-
     # edit
     if "edit" in request.args:
         return edit(path)
