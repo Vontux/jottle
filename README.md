@@ -15,6 +15,9 @@ Jottle is my solution to this pretty specific need. It runs on my android phone 
 
 It's portable vim in my pocket for when I can't ssh and don't want to upload stuff to someone else's server.
 
+## Fork
+This is a fork of the version of jottle found at https://github.com/madacoo/jottle , its primary purpose is to add functionality to create directories as subdirectories and files in the root text folder you specify in config.py. All usage of "I" prior to this section of the readme refer to the author of the original this was forked from "madacoo", in this section it refers to me, Vontux. I decided that since the usecases where file and directory creation is only possible through the user interface controls on the webpage and where they are creatable by just inputting a path that doesn't exist in the url are different enough for it to not quite make sense to do a pull request and instead doing a fork made more sense.
+
 ## usage
 
 Once the flask app is running, simply point a browser at its address.
