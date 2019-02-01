@@ -81,6 +81,10 @@ def view(path):
 
 @app.route("/login", methods = ["GET", "POST"])
 def login():
+    #create the root text folder specified in config.root if it doesn't yet exist.
+    if not os.path.isdir(config.root):
+       os.makedirs(config.root)
+
     if request.method == "POST":
         if not authenticate_password(request.form['password']):
             return render_template("authenticate.html")
@@ -93,6 +97,9 @@ def login():
 @app.route("/", methods = ["GET", "POST"])
 @app.route("/<path:path>", methods = ["GET", "POST"])
 def index(path=""):
+    #create the root text folder specified in config.root if it doesn't yet exist.
+    if not os.path.isdir(config.root):
+       os.makedirs(config.root)
     key = request.cookies.get('key')
     if not authenticate_key(key):
         return render_template("login.html")
